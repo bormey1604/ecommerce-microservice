@@ -1,0 +1,33 @@
+server:
+  port: 8040
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/notification
+  kafka:
+    order:
+      topic: order-topic
+      group-id: orderGroup
+    payment:
+      topic: payment-topic
+      group-id: paymentGroup
+    consumer:
+      bootstrap-servers: localhost:9092
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  mail:
+    host: localhost
+    port: 1025
+    username: bormeytechgirl@gmail.com
+    password: ${APP_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+        auth: true
+        starttls:
+          enabled: true
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+
